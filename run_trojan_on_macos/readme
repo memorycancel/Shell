@@ -1,0 +1,12 @@
+requires:
+1.install
+    brew tap trojan-gfw/homebrew-trojan
+    brew install trojan
+2. config
+    vi /usr/local/etc/trojan/config.json
+    (edit remote_addr remote_port password ssl.verify: false)
+
+run:
+    bash trojan.sh on
+quit:
+    bash trojan off
