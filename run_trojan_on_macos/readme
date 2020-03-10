@@ -20,3 +20,7 @@ run:
     bash trojan.sh on
 quit:
     bash trojan off
+
+*3. command
+    alias trojan_on="sh ~/Desktop/work/codes/Shell/run_trojan_on_macos/trojan.sh on"       
+    alias trojan_off="sh ~/Desktop/work/codes/Shell/run_trojan_on_macos/trojan.sh off"
