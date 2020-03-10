@@ -1,4 +1,14 @@
 requires:
+(Server: ubuntu 19)
+1. Get a host-A(eg: gce ubuntu 19) and expose port 80(for test) 443(for test) 4433(for trojan)
+2. Install nginx(test in browser http://host-A:80)
+3. Get a DOMAIN NAME and make it paired to your host-A(test in browser http://DOMAIN NAME:80)
+4. Config site with SSL using https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx
+5. Install trojan using https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
+6. Config /etc/trojan/config.json port edit 443to 4433, cert and key copy from nginx'ssl config
+7. Run trojan
+
+(Client: macbook 2019)
 1.install
     brew tap trojan-gfw/homebrew-trojan
     brew install trojan
