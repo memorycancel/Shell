@@ -7,6 +7,7 @@ requires:
 5. Install trojan using https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
 6. Config /etc/trojan/config.json port edit 443to 4433, cert and key copy from nginx'ssl config
 7. Run trojan
+8. Install bbr https://gist.github.com/xterat/cefccb42f7d4b2055368ebb00454861f
 
 (Client: macbook 2019)
 1.install
