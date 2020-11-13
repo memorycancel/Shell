@@ -1,0 +1,4 @@
+1 设置域名解析api.xxx.xxx 到服务器，rails s -b 0.0.0.0 启动，如果成功 http://api.xxx.xxx:3000
+2 nginx配置反向代理把本地的Rails映射到80端口 rails s启动，如果成功 http://api.xxx.xxx
+3 去https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx 按步骤申请公私钥，/etc/letsencrypt/live/api.xxx.xxx
+4 配置nginx 增加 ssl 配置，映射 443端口，并设置刚申请好的钥匙对，重启nginx 如果成功 https://api.xxx.xxx
