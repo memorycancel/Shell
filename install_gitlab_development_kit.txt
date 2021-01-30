@@ -15,8 +15,9 @@ bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 make
 
 安装js packages
-javascript源改了没用 还是要 proxy yarn config set registry registry https://registry.npmjs.org -g
-
+javascript源
+yarn config get registry
+yarn config set registry https://registry.npm.taobao.org
 env ALL_PROXY=socks5h://localhost:8888 make
 
 报错
