@@ -1,8 +1,14 @@
-https://docs.gitlab.com/ee/development/gitaly.html
+准备 trojan安装好并启动，8888端口
+
 安装gdk 使用代理make bootstrap：
 
 env http_proxy=socks5h://localhost:8888 HTTPS_PROXY=socks5h://localhost:8888 ALL_PROXY=socks5h://localhost:8888 make bootstrap
 env ALL_PROXY=socks5h://localhost:8888 make
+
+安装nodejs报错
+Authenticity of checksum file can not be assured! Please be sure to check the README of asdf-nodejs in case you did not yet import the needed PGP keys. If you already did that then that is the point to become SUSPICIOUS! There must be a reason why this is failing. If you are installing an older NodeJS version you might need to import OpenPGP keys of previous release managers. Exiting.
+
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 安装gems
 修改所有的Gemfile source https://gems.ruby-china.com/
@@ -35,7 +41,7 @@ gdk reconfigure
 env ALL_PROXY=socks5h://localhost:8888 make
 gdk start
 curl http://192.168.31.116:3000/
- username root and password 5iveL!fe
+username root and password 5iveL!fe
 
 how debug
 https://gitlab.com/gitlab-org/gitlab-development-kit/blob/master/doc/howto/runner.md#advanced-configuration 修改bind ip
