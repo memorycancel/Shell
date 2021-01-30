@@ -1,0 +1,49 @@
+https://docs.gitlab.com/ee/development/gitaly.html
+安装gdk 使用代理make bootstrap：
+
+env http_proxy=socks5h://localhost:8888 HTTPS_PROXY=socks5h://localhost:8888 ALL_PROXY=socks5h://localhost:8888 make bootstrap
+env ALL_PROXY=socks5h://localhost:8888 make
+
+安装gems
+修改所有的Gemfile source https://gems.ruby-china.com/
+make
+
+安装js packages
+javascript源改了没用 还是要 proxy yarn config set registry registry https://registry.npmjs.org -g
+
+env ALL_PROXY=socks5h://localhost:8888 make
+
+报错
+error: pathspec 'locale/*/gitlab.po' did not match any file(s) known to git
+https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/master/doc/troubleshooting.md
+解决：注释此行
+
+安装go packages
+go: github.com/mattn/go-shellwords@v0.0.0-20190425161501-2444a32a19f4: Get "https://proxy.golang.org/github.com/mattn/go-shellwords/@v/v0.0.0-20190425161501-2444a32a19f4.mod": dial tcp 64.233.187.141:443: i/o timeout
+20行 export GOPROXY ?= https://goproxy.cn
+
+安装jaeger 上代理
+env http_proxy=socks5h://localhost:8888 HTTPS_PROXY=socks5h://localhost:8888 ALL_PROXY=socks5h://localhost:8888 make
+
+继续完成
+env ALL_PROXY=socks5h://localhost:8888 make
+
+
+重置（不可以修改或增加 gdk.yml文件）
+修改gdk.yml 增加一行 hostname: 192.168.31.116
+gdk reconfigure
+env ALL_PROXY=socks5h://localhost:8888 make
+gdk start
+curl http://192.168.31.116:3000/
+ username root and password 5iveL!fe
+
+how debug
+https://gitlab.com/gitlab-org/gitlab-development-kit/blob/master/doc/howto/runner.md#advanced-configuration 修改bind ip
+https://gitlab.com/gitlab-org/gitlab-development-kit/-/issues/140 使用pry
+
+
+关机后重启 需要先启动必要的数据服务 否则报错
+gdk start redis postgres
+
+dial unix /home/zhushuang/gitlab-development-kit/gitlab.socket: connect: no such file or directory
+正常，很慢，继续等待60s
