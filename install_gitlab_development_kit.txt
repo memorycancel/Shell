@@ -54,3 +54,10 @@ gdk start redis postgres
 
 dial unix /home/zhushuang/gitlab-development-kit/gitlab.socket: connect: no such file or directory
 正常，很慢，继续等待60s
+
+PG::BAD error
+env ALL_PROXY=socks5h://localhost:8888 gdk reconfigure
+
+修改gitlab_repo:
+方法1：修改gdk.yml repositories(参考gdk.yml.example) 然后执行 gdk reconfigure
+方法2：gdk install ...(参考gdk -h)
