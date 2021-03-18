@@ -66,3 +66,6 @@ make 报错：
 elasticsearch-7.10.2/lib/elasticsearch-7.10.2.jar: truncated gzip input
 tar: Error exit delayed from previous errors.
 make: *** [elasticsearch/bin/elasticsearch] Error 1
+原因：下载终端导致包问题
+解决：rm elasticsearch-7.10.2.tar rm -rf elasticsearch-7.10.2
+     重新执行 env ALL_PROXY=socks5h://127.0.0.1:1080 make
