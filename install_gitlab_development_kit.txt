@@ -1,4 +1,4 @@
-准备 trojan安装好并启动，8888端口
+准备 代理安装好并启动，8888端口
 
 安装gdk 使用代理make bootstrap：
 
@@ -69,3 +69,12 @@ make: *** [elasticsearch/bin/elasticsearch] Error 1
 原因：下载终端导致包问题
 解决：rm elasticsearch-7.10.2.tar rm -rf elasticsearch-7.10.2
      重新执行 env ALL_PROXY=socks5h://127.0.0.1:1080 make
+     
+Puma caught this error: FATAL:  database "gitlabhq_development" does not exist
+ (ActiveRecord::NoDatabaseError)
+ bundle exec rails db:setup
+ bundle exec rails db:migrate
+ 
+ no postgresql.q.5432 listen...
+ initdb xxxxx/data
+ 
