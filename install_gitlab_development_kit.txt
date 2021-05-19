@@ -78,3 +78,7 @@ Puma caught this error: FATAL:  database "gitlabhq_development" does not exist
  no postgresql.q.5432 listen...
  initdb xxxxx/data
  
+gdk reset-data 报错databse_development 不存在，解决办法：重新安装postgresql
+asdf uninstall postgresql
+asdf install postgresql
+gdk reconfigure
